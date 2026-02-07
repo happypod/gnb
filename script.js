@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 (() => {
   if (!window.matchMedia("(max-width: 768px)").matches) return;
 
-  const pages = ["company.html", "business.html", "portfolio.html", "contact.html"];
+  const pages = ["index.html", "company.html", "business.html", "portfolio.html", "contact.html"];
   const file = (location.pathname.split("/").pop() || "index.html").split("?")[0];
   const idx = pages.indexOf(file);
   if (idx === -1) return;

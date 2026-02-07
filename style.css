@@ -508,3 +508,29 @@ footer {
     transition: none !important;
   }
 }
+
+@media (max-width: 768px) {
+  .swipe-preview {
+    position: fixed;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: 8px 10px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.2px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 120ms ease, transform 120ms ease;
+    white-space: nowrap;
+  }
+  .swipe-preview.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

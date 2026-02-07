@@ -60,16 +60,40 @@ document.addEventListener("DOMContentLoaded", () => {
 (() => {
   if (!window.matchMedia("(max-width: 768px)").matches) return;
 
-  const pages = ["index.html", "company.html", "business.html", "portfolio.html", "contact.html"];
+  // ✅ index부터 포함 + 무한 순환(첫/마지막 없음)
+  const pages = [
+    "index.html",
+    "company.html",    // 소개
+    "business.html",   // 일하는 방식
+    "portfolio.html",  // 포트폴리오
+    "contact.html"     // 연락하기
+  ];
+
+  // 현재 페이지 파일명
   const file = (location.pathname.split("/").pop() || "index.html").split("?")[0];
+
+  // pages에 없는 페이지면 비활성
   const idx = pages.indexOf(file);
   if (idx === -1) return;
 
+  // 페이지 라벨
+  const labels = {
+    "index.html": "홈",
+    "company.html": "소개",
+    "business.html": "일하는 방식",
+    "portfolio.html": "포트폴리오",
+    "contact.html": "연락하기"
+  };
+
+  // 무한 순환 인덱스 계산
+  const nextIndex = (i) => (i + 1) % pages.length;
+  const prevIndex = (i) => (i - 1 + pages.length) % pages.length;
+
   // ---- UI hint (once) ----
-  const HINT_KEY = "gnb_swipe_hint_seen_v1";
+  const HINT_KEY = "gnb_swipe_hint_seen_v2";
   const hint = document.createElement("div");
   hint.className = "swipe-hint";
-  hint.textContent = "좌우로 밀어 다음 페이지로 이동";
+  hint.textContent = "좌우로 밀어 페이지 이동";
   document.body.appendChild(hint);
 
   const edgeL = document.createElement("div");
@@ -80,25 +104,38 @@ document.addEventListener("DOMContentLoaded", () => {
   edgeR.className = "swipe-edge right";
   document.body.appendChild(edgeR);
 
+  // 상단 미리보기 라벨
+  const preview = document.createElement("div");
+  preview.className = "swipe-preview";
+  document.body.appendChild(preview);
+
   const showHintOnce = () => {
     if (localStorage.getItem(HINT_KEY)) return;
     localStorage.setItem(HINT_KEY, "1");
     hint.classList.add("show");
     edgeL.classList.add("show");
     edgeR.classList.add("show");
-    setTimeout(() => hint.classList.remove("show"), 1800);
-    setTimeout(() => { edgeL.classList.remove("show"); edgeR.classList.remove("show"); }, 1200);
+    setTimeout(() => hint.classList.remove("show"), 1600);
+    setTimeout(() => { edgeL.classList.remove("show"); edgeR.classList.remove("show"); }, 1000);
   };
 
-  // 첫 방문/첫 페이지 진입 시 1회 노출
-  window.addEventListener("load", () => setTimeout(showHintOnce, 350), { once: true });
+  window.addEventListener("load", () => setTimeout(showHintOnce, 300), { once: true });
+
+  const showPreview = (text) => {
+    preview.textContent = text;
+    preview.classList.add("show");
+  };
+  const hidePreview = () => preview.classList.remove("show");
+
+  const nextLabel = (i) => `${labels[pages[nextIndex(i)]]} 보기 →`;
+  const prevLabel = (i) => `← ${labels[pages[prevIndex(i)]]} 보기`;
 
   // ---- swipe detection + drag effect ----
   const SWIPE_THRESHOLD = 70;
   const MAX_VERTICAL = 90;
   const MAX_TIME = 900;
   const EDGE_GUARD = 12;
-  const DRAG_MAX_PX = 36; // 화면이 따라오는 최대 거리
+  const DRAG_MAX_PX = 36;
 
   let startX = 0, startY = 0, startT = 0;
   let tracking = false;
@@ -109,23 +146,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 
   const setDragX = (dx) => {
-    // dx는 실제 이동량 → 화면은 아주 조금만 따라오게
     const dragX = clamp(dx * 0.18, -DRAG_MAX_PX, DRAG_MAX_PX);
-    document.documentElement.style.setProperty("--drag-x", dragX + "px");
-    document.body.style.transform = `translateX(var(--drag-x))`;
+    document.body.style.transform = `translateX(${dragX}px)`;
   };
 
-  const resetDrag = (withTransition = true) => {
-    if (withTransition) {
-      document.body.style.transition = "transform 180ms ease";
-      requestAnimationFrame(() => {
-        document.body.style.transform = "translateX(0px)";
-      });
-      setTimeout(() => { document.body.style.transition = ""; }, 200);
-    } else {
-      document.body.style.transform = "translateX(0px)";
-      document.body.style.transition = "";
-    }
+  const resetDrag = () => {
+    document.body.style.transition = "transform 180ms ease";
+    requestAnimationFrame(() => (document.body.style.transform = "translateX(0px)"));
+    setTimeout(() => { document.body.style.transition = ""; }, 200);
     document.body.classList.remove("is-dragging");
   };
 
@@ -140,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startX = t.clientX;
     startY = t.clientY;
     startT = Date.now();
+
     document.body.classList.add("is-dragging");
     document.body.style.willChange = "transform";
   };
@@ -152,48 +181,60 @@ document.addEventListener("DOMContentLoaded", () => {
     const dx = t.clientX - startX;
     const dy = t.clientY - startY;
 
-    // 세로 스크롤 우세면 드래그 이펙트 중단
     if (Math.abs(dy) > MAX_VERTICAL) {
       tracking = false;
-      resetDrag(true);
+      hidePreview();
+      edgeL.classList.remove("show");
+      edgeR.classList.remove("show");
+      resetDrag();
       return;
     }
 
-    // 가볍게 따라오는 이펙트
     setDragX(dx);
 
-    // 방향에 따라 edge 가이드 살짝 노출
-    if (dx < -18 && idx < pages.length - 1) edgeR.classList.add("show");
-    else edgeR.classList.remove("show");
-
-    if (dx > 18 && idx > 0) edgeL.classList.add("show");
-    else edgeL.classList.remove("show");
+    // ✅ 무한 순환이므로 항상 양쪽 라벨 가능
+    if (dx < -18) {
+      showPreview(nextLabel(idx));      // 왼쪽 스와이프(다음)
+      edgeR.classList.add("show");
+      edgeL.classList.remove("show");
+    } else if (dx > 18) {
+      showPreview(prevLabel(idx));      // 오른쪽 스와이프(이전)
+      edgeL.classList.add("show");
+      edgeR.classList.remove("show");
+    } else {
+      hidePreview();
+      edgeL.classList.remove("show");
+      edgeR.classList.remove("show");
+    }
   };
 
   const onEnd = (e) => {
     if (!tracking) return;
     tracking = false;
 
+    hidePreview();
     edgeL.classList.remove("show");
     edgeR.classList.remove("show");
 
     const t = e.changedTouches?.[0];
-    if (!t) { resetDrag(true); return; }
+    if (!t) { resetDrag(); return; }
 
     const dx = t.clientX - startX;
     const dy = t.clientY - startY;
     const dt = Date.now() - startT;
 
-    // 원위치 복귀 먼저
-    resetDrag(true);
+    resetDrag();
 
     if (dt > MAX_TIME) return;
     if (Math.abs(dy) > MAX_VERTICAL) return;
     if (Math.abs(dx) < SWIPE_THRESHOLD) return;
 
-    // 이동
-    if (dx < 0 && idx < pages.length - 1) location.href = pages[idx + 1];
-    else if (dx > 0 && idx > 0) location.href = pages[idx - 1];
+    // ✅ 무한 순환 이동
+    if (dx < 0) {
+      location.href = pages[nextIndex(idx)];
+    } else if (dx > 0) {
+      location.href = pages[prevIndex(idx)];
+    }
   };
 
   document.addEventListener("touchstart", onStart, { passive: true });

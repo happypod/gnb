@@ -121,9 +121,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("load", () => setTimeout(showHintOnce, 300), { once: true });
 
-  const showPreview = (text) => {
-    preview.textContent = text;
-    preview.classList.add("show");
+  // ---- preview ----
+  const showPreviewAt = (text, x, y) => {
+  preview.textContent = text;
+
+  // 화면 밖으로 튀지 않게 약간 클램프
+  const pad = 16;
+  const px = Math.max(pad, Math.min(window.innerWidth - pad, x));
+  const py = Math.max(pad, Math.min(window.innerHeight - pad, y));
+
+  preview.style.left = px + "px";
+  preview.style.top = py + "px";
+
+  preview.classList.add("show");
   };
   const hidePreview = () => preview.classList.remove("show");
 
@@ -194,18 +204,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ✅ 무한 순환이므로 항상 양쪽 라벨 가능
     if (dx < -18) {
-      showPreview(nextLabel(idx));      // 왼쪽 스와이프(다음)
+      showPreviewAt(nextLabel(idx), t.clientX, t.clientY);
       edgeR.classList.add("show");
       edgeL.classList.remove("show");
     } else if (dx > 18) {
-      showPreview(prevLabel(idx));      // 오른쪽 스와이프(이전)
+      showPreviewAt(prevLabel(idx), t.clientX, t.clientY);
       edgeL.classList.add("show");
       edgeR.classList.remove("show");
     } else {
       hidePreview();
       edgeL.classList.remove("show");
       edgeR.classList.remove("show");
-    }
+    } 
   };
 
   const onEnd = (e) => {

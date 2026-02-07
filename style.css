@@ -461,3 +461,50 @@ footer {
     object-fit: cover;
     filter: grayscale(100%) opacity(0.8);
 }
+
+/* swipe hint (mobile only) */
+@media (max-width: 768px) {
+  .swipe-hint {
+    position: fixed;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: -0.2px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease, transform 220ms ease;
+    white-space: nowrap;
+  }
+  .swipe-hint.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* subtle edge guide */
+  .swipe-edge {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 18px;
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+  .swipe-edge.left { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.06), rgba(0,0,0,0)); }
+  .swipe-edge.right { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.06), rgba(0,0,0,0)); }
+  .swipe-edge.show { opacity: 1; }
+
+  /* drag effect: slightly translate page */
+  body.is-dragging {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approach - GNB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Text UX Specific Styles for Work Page */
+        .text-section {
+            padding: 120px 0;
+            background-color: var(--white);
+        }
+        
+        .text-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .work-hero {
+            padding: 180px 0 120px;
+            text-align: left;
+        }
+
+        .work-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .work-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .narrative {
+            font-size: 1.35rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .narrative p {
+            margin-bottom: 2rem;
+        }
+
+        .list-narrative ul {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .list-narrative li {
+            font-size: 1.25rem;
+            padding: 20px 0;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .list-narrative li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        .cta-box {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-btns {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .work-hero h1 { font-size: 2.2rem; }
+            .narrative { font-size: 1.15rem; }
+            .cta-btns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><span class="logo-g">g</span>&<span class="logo-b">b</span> <span>Planning</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="company.html">소개</a></li>
+                    <li><a href="business.html" class="active">일하는 방식</a></li>
+                    <li><a href="portfolio.html">포트폴리오</a></li>
+                    <li><a href="contact.html">연락하기</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- [SECTION 01] HERO — 관점 재확인 -->
+    <section class="text-section work-hero">
+        <div class="container fade-wrap">
+            <h1>우리는<br>사업을 수행하기보다,<br>상황에 들어갑니다.</h1>
+            <p>GNB Planning / Work</p>
+        </div>
+    </section>
+
+    <!-- [SECTION 02] 우리가 다루는 상황 — 사업의 출발점 (Muted BG) -->
+    <section class="text-section bg-muted">
+        <div class="container narrative list-narrative fade-wrap">
+            <p>이 일들은<br>대개 이런 상황에서 시작됩니다.</p>
+            
+            <ul style="border: none; margin: 30px 0;">
+                <li>계획은 있지만 실행 주체가 불분명한 경우</li>
+                <li>주민과 행정의 이해가 엇갈린 상태</li>
+                <li>사업은 시작됐으나 조정 구조가 없는 현장</li>
+            </ul>
+
+            <p style="margin-top: 50px; font-weight: 700; color: var(--primary-color);">
+                우리는<br>
+                이 지점에서 불려옵니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 03] GNB의 개입 방식 — 방법론 설명 X -->
+    <section class="text-section">
+        <div class="container narrative fade-wrap">
+            <p style="color: var(--primary-color); font-weight: 700;">
+                GNB는<br>
+                해결책을 들고 들어가지 않습니다.
+            </p>
+            <p>
+                먼저<br>
+                사람을 만나고,<br>
+                관계를 정리하고,<br>
+                역할을 나눕니다.
+            </p>
+            <p>
+                그리고<br>
+                상황에 맞는 구조를<br>
+                함께 만듭니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 04] 우리가 반복해온 역할 — 사업의 본질 -->
+    <section class="text-section">
+        <div class="container fade-wrap">
+            <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--primary-color);">사업은 달라도,<br>우리가 맡아온 역할은<br>크게 다르지 않았습니다.</h2>
+            
+            <div class="list-narrative">
+                <ul>
+                    <li>엇갈린 의견을 정리하는 역할</li>
+                    <li>행정과 주민 사이를 중재하는 역할</li>
+                    <li>계획이 실행되도록 구조를 만드는 역할</li>
+                </ul>
+            </div>
+
+            <p class="narrative">
+                이 역할은<br>
+                사업명보다 오래 남았습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 05] 우리가 다뤄온 영역 — 최소한의 범위 제시 (Muted BG) -->
+    <section class="text-section bg-muted">
+        <div class="container fade-wrap">
+            <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--primary-color);">우리는<br>다음과 같은 영역에서<br>이 역할을 수행해왔습니다.</h2>
+            
+            <div class="list-narrative">
+                <ul style="border-color: rgba(0,0,0,0.1);">
+                    <li>농어촌 지역개발</li>
+                    <li>어촌·연안 지역 활성화</li>
+                    <li>주민참여 구조 설계</li>
+                    <li>갈등 조정 및 운영체계 구축</li>
+                </ul>
+            </div>
+
+            <p class="narrative">
+                영역은 달랐지만,<br>
+                접근 방식은 같았습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 06] 사업을 대하는 태도 — 철학 요약 -->
+    <section class="text-section">
+        <div class="container narrative fade-wrap" style="text-align: center;">
+            <p>
+                GNB Planning은<br>
+                지역개발을<br>
+                기획의 문제가 아니라<br>
+                <span style="color: var(--primary-color); font-weight: 700;">조정의 문제</span>로 봅니다.
+            </p>
+            <p style="margin-top: 50px;">
+                그래서<br>
+                문서보다 현장을,<br>
+                아이디어보다 관계를<br>
+                먼저 다룹니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 07] 연결 — 실적 또는 대화로 이동 (Muted BG) -->
+    <section class="text-section bg-muted">
+        <div class="container fade-wrap">
+            <div class="cta-box">
+                <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--primary-color);">이런 상황이라면,<br>우리가 했던 방식이<br>도움이 될 수 있습니다.</h2>
+                <div class="cta-btns">
+                    <a href="portfolio.html" class="btn btn-outline" style="border-color: var(--text-main); color: var(--text-main);">우리가 다뤄온 현장 보기</a>
+                    <a href="contact.html" class="btn">이야기 나누기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4><span class="logo-g">g</span>&<span class="logo-b">b</span> Planning</h4>
+                    <p>
+                        서울시 강남구 논현로36길 31, 3층<br>
+                        Tel: 02-458-3248<br>
+                        Email: contact@gnbplanning.co.kr
+                    </p>
+                </div>
+                <div class="footer-col" style="text-align: right;">
+                    <ul>
+                        <li><a href="company.html">소개</a></li>
+                        <li><a href="business.html">일하는 방식</a></li>
+                        <li><a href="portfolio.html">포트폴리오</a></li>
+                        <li><a href="contact.html">연락하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; g&b Planning. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Individual page fade logic reinforcement
+        document.addEventListener("DOMContentLoaded", () => {
+             const fades = document.querySelectorAll(".fade-wrap");
+             const observer = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         entry.target.classList.add("visible");
+                     }
+                 });
+             }, { threshold: 0.1 });
+             
+             fades.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive - GNB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Text UX Specific Styles for Archive Page */
+        .text-section {
+            padding: 120px 0;
+            background-color: var(--white);
+        }
+        
+        .text-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .archive-hero {
+            padding: 180px 0 120px;
+            text-align: left;
+        }
+
+        .archive-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .archive-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .narrative {
+            font-size: 1.35rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .narrative p {
+            margin-bottom: 2rem;
+        }
+
+        .list-narrative ul {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .list-narrative li {
+            font-size: 1.25rem;
+            padding: 20px 0;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .list-narrative li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        .archive-list-item {
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .archive-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .archive-place {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .archive-context {
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .cta-box {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-btns {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .archive-hero h1 { font-size: 2.2rem; }
+            .narrative { font-size: 1.15rem; }
+            .cta-btns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><span class="logo-g">g</span>&<span class="logo-b">b</span> <span>Planning</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="company.html">소개</a></li>
+                    <li><a href="business.html">일하는 방식</a></li>
+                    <li><a href="portfolio.html" class="active">포트폴리오</a></li>
+                    <li><a href="contact.html">연락하기</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- [SECTION 01] PAGE HERO — 실적 소개가 아닌 ‘경험의 성격’ -->
+    <section class="text-section archive-hero">
+        <div class="container fade-wrap">
+            <h1>우리는<br>결과를 나열하기보다,<br>과정을 정리해왔습니다.</h1>
+            <p>GNB Planning / Portfolio</p>
+        </div>
+    </section>
+
+    <!-- [SECTION 02] 실적을 바라보는 관점 — 기준 선언 (Muted BG) -->
+    <section class="text-section bg-muted">
+        <div class="container narrative fade-wrap">
+            <p>
+                이 페이지의 사례들은<br>
+                성공 사례 모음이 아닙니다.
+            </p>
+            <p style="margin-top: 50px;">
+                각기 다른 지역에서,<br>
+                비슷한 문제 구조를<br>
+                어떻게 정리했는지에 대한 기록입니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 03] 사례 분류 — 사업명 X / 상황 기준 O -->
+    <section class="text-section">
+        <div class="container narrative fade-wrap">
+            <p>우리는<br>다음과 같은 상황에서<br>반복적으로 불려왔습니다.</p>
+            
+            <div class="list-narrative">
+                <ul style="border: none; margin-top: 50px;">
+                    <li>계획은 있었지만 실행이 멈춰 있던 지역</li>
+                    <li>주민과 행정의 의견이 엇갈려 있던 현장</li>
+                    <li>역할과 책임이 불분명했던 사업 구조</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- [SECTION 04] 사례 리스트 — 최소 정보 원칙 (Muted BG) -->
+    <section class="text-section bg-muted">
+        <div class="container fade-wrap">
+            <div class="narrative" style="margin-bottom: 80px;">
+                <p>아래 사례들은<br>이러한 상황 속에서<br>진행된 작업들입니다.</p>
+            </div>
+
+            <div class="archive-list">
+                <a href="portfolio/mohang-3ri.html" class="archive-list-item" style="display: block; text-decoration: none;">
+                    <div class="archive-place">태안군 소원면</div>
+                    <div class="archive-context">– 갈등으로 멈춰선 어항의 시간을 다시 흐르게 하다</div>
+                </a>
+                <a href="portfolio/munsan-myeon.html" class="archive-list-item" style="display: block; text-decoration: none;">
+                    <div class="archive-place">서천군 문산면</div>
+                    <div class="archive-context">– 계획은 있었지만 실행 주체가 없던 마을</div>
+                </a>
+                <a href="portfolio/bigeum-myeon.html" class="archive-list-item" style="display: block; text-decoration: none;">
+                    <div class="archive-place">신안군 비금면</div>
+                    <div class="archive-context">– 고립된 섬에서 연결된 공동체로</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- [SECTION 05] 개별 사례 구조 — 클릭 후 상세 흐름 예고 -->
+    <section class="text-section">
+        <div class="container narrative fade-wrap">
+            <p>각 사례는<br>다음과 같은 흐름으로<br>정리되어 있습니다.</p>
+            
+            <div class="list-narrative">
+                <ul style="border-top: none; margin-top: 30px;">
+                    <li>이 지역의 초기 상황</li>
+                    <li>문제가 꼬여 있던 지점</li>
+                    <li>GNB가 맡았던 역할</li>
+                    <li>정리된 구조</li>
+                </ul>
+            </div>
+
+            <p style="margin-top: 40px;">
+                결과는 설명하지 않습니다.<br>
+                변화는 과정 속에 남아 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 06] GNB의 역할 요약 — 실적의 공통분모 -->
+    <section class="text-section">
+        <div class="container fade-wrap">
+            <h2 style="font-size: 1.8rem; margin-bottom: 30px; color: var(--primary-color);">지역은 달랐지만,<br>GNB의 역할은<br>크게 다르지 않았습니다.</h2>
+            
+            <div class="list-narrative">
+                <ul>
+                    <li>의견을 정리하는 역할</li>
+                    <li>이해관계를 조정하는 역할</li>
+                    <li>실행이 가능하도록 구조를 만드는 역할</li>
+                </ul>
+            </div>
+
+            <p class="narrative">
+                이 역할은<br>
+                개별 프로젝트보다<br>
+                더 오래 남았습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 07] 다음 이동 — 방식 또는 대화 (Muted BG) -->
+    <section class="text-section bg-muted">
+        <div class="container fade-wrap">
+            <div class="cta-box">
+                <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--primary-color);">비슷한 상황이라면,<br>우리가 했던 방식이<br>참고가 될 수 있습니다.</h2>
+                <div class="cta-btns">
+                    <a href="business.html" class="btn btn-outline" style="border-color: var(--text-main); color: var(--text-main);">우리가 일하는 방식 보기</a>
+                    <a href="contact.html" class="btn">이야기 나누기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4><span class="logo-g">g</span>&<span class="logo-b">b</span> Planning</h4>
+                    <p>
+                        서울시 강남구 논현로36길 31, 3층<br>
+                        Tel: 02-458-3248<br>
+                        Email: contact@gnbplanning.co.kr
+                    </p>
+                </div>
+                <div class="footer-col" style="text-align: right;">
+                    <ul>
+                        <li><a href="company.html">소개</a></li>
+                        <li><a href="business.html">일하는 방식</a></li>
+                        <li><a href="portfolio.html">포트폴리오</a></li>
+                        <li><a href="contact.html">연락하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; g&b Planning. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Individual page fade logic reinforcement
+        document.addEventListener("DOMContentLoaded", () => {
+             const fades = document.querySelectorAll(".fade-wrap");
+             const observer = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         entry.target.classList.add("visible");
+                     }
+                 });
+             }, { threshold: 0.1 });
+             
+             fades.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

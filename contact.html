@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - GNB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Text UX Specific Styles for Contact Page */
+        .text-section {
+            padding: 120px 0;
+            background-color: var(--white);
+        }
+        
+        .text-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-hero {
+            padding: 180px 0 120px;
+            text-align: left;
+        }
+
+        .contact-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .contact-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .narrative {
+            font-size: 1.35rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .narrative p {
+            margin-bottom: 2rem;
+        }
+
+        .list-narrative ul {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .list-narrative li {
+            font-size: 1.25rem;
+            padding: 20px 0;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .list-narrative li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        /* Minimal Form Styles */
+        .contact-form {
+            margin-top: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 15px 0;
+            border: none;
+            border-bottom: 1px solid #e2e8f0;
+            background: transparent;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            border-radius: 0;
+            outline: none;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-bottom-color: var(--secondary-color);
+        }
+
+        .form-textarea {
+            resize: none;
+            min-height: 150px;
+            line-height: 1.6;
+        }
+
+        .form-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .form-btn:hover {
+            border-bottom-color: var(--primary-color);
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero h1 { font-size: 2.2rem; }
+            .narrative { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><span class="logo-g">g</span>&<span class="logo-b">b</span> <span>Planning</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="company.html">소개</a></li>
+                    <li><a href="business.html">일하는 방식</a></li>
+                    <li><a href="portfolio.html">포트폴리오</a></li>
+                    <li><a href="contact.html" class="active">연락하기</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- [SECTION 01] PAGE HERO — 문의가 아닌 ‘대화의 성격 규정’ -->
+    <section class="text-section contact-hero">
+        <div class="container fade-wrap">
+            <h1>우리는<br>바로 제안을 하지 않습니다.</h1>
+            <p style="margin-top: 30px; font-size: 1.5rem; color: var(--text-main); font-weight: 500;">먼저<br>상황을 듣습니다.</p>
+            <p style="margin-top: 60px;">GNB Planning / Contact</p>
+        </div>
+    </section>
+
+    <!-- [SECTION 02] 이 페이지의 역할 — 기대치 정렬 (Muted BG) -->
+    <section class="text-section bg-muted">
+        <div class="container narrative fade-wrap">
+            <p>
+                이 페이지는<br>
+                견적을 받기 위한 곳이 아닙니다.
+            </p>
+            <p style="margin-top: 50px;">
+                지금 겪고 있는 상황이<br>
+                정리할 가치가 있는지,<br>
+                함께 판단하기 위한 자리입니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- [SECTION 03] 우리가 듣고 싶은 이야기 — 질문형 안내 -->
+    <section class="text-section">
+        <div class="container narrative fade-wrap">
+            <p>이런 이야기라면,<br>들을 준비가 되어 있습니다.</p>
+            
+            <div class="list-narrative">
+                <ul>
+                    <li>계획은 있지만, 어디서부터 풀어야 할지 모를 때</li>
+                    <li>주민과 행정 사이에서 조정이 필요한 상황</li>
+                    <li>사업은 시작됐지만 구조가 잡히지 않은 경우</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- [SECTION 04] 연락 방식 & [SECTION 05] 메시지 입력 & [SECTION 06] 버튼 -->
+    <form class="text-section">
+        <div class="container fade-wrap">
+            
+            <!-- SECTION 04: 연락 방식 -->
+            <div class="narrative" style="margin-bottom: 60px;">
+                <p>연락은<br>가장 편한 방식이면 충분합니다.</p>
+                <p style="font-size: 1rem; color: var(--text-muted); margin-top: -20px;">
+                    상황을 간단히 적어주셔도 좋고, 연락 가능한 시간만 남겨주셔도 됩니다.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-input" placeholder="이메일 또는 전화번호">
+            </div>
+
+            <!-- SECTION 05: 메시지 입력 -->
+            <div class="narrative" style="margin-top: 80px; margin-bottom: 40px;">
+                <p>지금의 상황을<br>있는 그대로 적어주세요.</p>
+                <p style="font-size: 1rem; color: var(--text-muted); margin-top: -20px;">
+                    긴 설명은 필요하지 않습니다. 정리되지 않아도 괜찮습니다.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <textarea class="form-textarea" placeholder=""></textarea>
+            </div>
+
+            <!-- SECTION 06: 전송 버튼 -->
+            <div style="text-align: left; margin-top: 60px;">
+                <button type="submit" class="form-btn">이야기 남기기</button>
+            </div>
+
+        </div>
+    </form>
+
+    <!-- [SECTION 07] 마무리 문장 — 여운 (Muted BG) -->
+    <section class="text-section bg-muted">
+        <div class="container narrative fade-wrap">
+            <p>모든 이야기가<br>바로 일이 되지는 않습니다.</p>
+            <p style="margin-top: 50px;">
+                하지만<br>
+                정리할 가치가 있는 상황이라면,<br>
+                그 대화는 의미가 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4><span class="logo-g">g</span>&<span class="logo-b">b</span> Planning</h4>
+                    <p>
+                        서울시 강남구 논현로36길 31, 3층<br>
+                        Tel: 02-458-3248<br>
+                        Email: contact@gnbplanning.co.kr
+                    </p>
+                </div>
+                <div class="footer-col" style="text-align: right;">
+                    <ul>
+                        <li><a href="company.html">소개</a></li>
+                        <li><a href="business.html">일하는 방식</a></li>
+                        <li><a href="portfolio.html">포트폴리오</a></li>
+                        <li><a href="contact.html">연락하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; g&b Planning. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Individual page fade logic reinforcement
+        document.addEventListener("DOMContentLoaded", () => {
+             const fades = document.querySelectorAll(".fade-wrap");
+             const observer = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         entry.target.classList.add("visible");
+                     }
+                 });
+             }, { threshold: 0.1 });
+             
+             fades.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

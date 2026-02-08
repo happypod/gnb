@@ -5,11 +5,14 @@ const navLinks = document.querySelector(".nav-links");
 if (mobileMenuBtn) {
   mobileMenuBtn.addEventListener("click", () => {
     navLinks.classList.toggle("active");
-    const icon = mobileMenuBtn.querySelector("i");
-    // Simple toggle logic
-    if (navLinks.classList.contains("active")) {
-        // Change icon if needed, or just keep simple
-    }
+  });
+
+  // Close menu when a link is clicked
+  const menuLinks = navLinks.querySelectorAll('a');
+  menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+      });
   });
 }
 

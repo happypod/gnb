@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인재상 및 지원 | GNB Planning</title>
+  <meta name="description" content="GNB Planning은 창의적이고 협업에 강한 인재를 찾습니다. 지원하기">
+  <meta property="og:title" content="인재상 및 지원 | GNB Planning">
+  <meta property="og:description" content="GNB Planning은 창의적이고 협업에 강한 인재를 찾습니다. 지금 지원하세요.">
+  <meta property="og:image" content="https://happypod.github.io/gnb/img/og-recruit.png"> <!-- User requested this path, though image might not exist yet -->
+  <meta property="og:url" content="https://happypod.github.io/gnb/recruit.html">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/recruit.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+      <div class="container">
+          <a href="index.html" class="logo"><span class="logo-g">g</span>&<span class="logo-b">b</span> <span>Planning</span></a>
+          <nav>
+              <ul class="nav-links">
+                  <li><a href="company.html">소개</a></li>
+                  <li><a href="business.html">일하는 방식</a></li>
+                  <li><a href="portfolio.html">포트폴리오</a></li>
+                  <li><a href="contact.html">연락하기</a></li>
+                  <li><a href="recruit.html" class="active">채용</a></li>
+              </ul>
+              <div class="mobile-menu-btn">
+                  <i class="fas fa-bars"></i>
+              </div>
+          </nav>
+      </div>
+  </header>
+
+  <main class="recruit-container fade-wrap">
+
+    <section class="hero text-center">
+      <h1>GNB Planning의 인재상</h1>
+      <p>우리는 창의적이고 협업에 강하며,<br>문제 해결에 열정을 가진 인재를 찾습니다.</p>
+    </section>
+
+    <div class="visual-break fade-wrap" style="height: 300px; margin-bottom: 60px;">
+        <!-- Placeholder or reused image for visual break -->
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" style="object-fit: cover; width: 100%; height: 100%; filter: grayscale(20%); opacity: 0.9;" alt="Teamwork">
+    </div>
+
+    <section class="values fade-wrap">
+      <h2>우리가 찾는 인재상</h2>
+      <ul class="value-list">
+        <li>
+            <i class="fas fa-comments"></i>
+            <h3>긍정적 커뮤니케이션</h3>
+            <p>열린 마음으로 소통하고 동료를 존중합니다.</p>
+        </li>
+        <li>
+            <i class="fas fa-book-reader"></i>
+            <h3>학습에 대한 적극성</h3>
+            <p>새로운 지식을 배우고 공유하는 것을 즐깁니다.</p>
+        </li>
+        <li>
+            <i class="fas fa-users-cog"></i>
+            <h3>팀워크 & 주도적 실행력</h3>
+            <p>팀의 목표를 위해 주도적으로 행동합니다.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="requirements bg-muted fade-wrap">
+      <div class="container">
+          <h2>자격 요건</h2>
+          <p class="section-desc">관련 경험 우대, 포트폴리오 제출 필수</p>
+          <ul class="req-list">
+              <li>농촌/어촌 지역개발 관련 전공 또는 경력 보유자</li>
+              <li>한글/PPT/Excel 등 오피스 활용 능력 우수자</li>
+              <li>운전 가능자 우대</li>
+          </ul>
+      </div>
+    </section>
+
+    <section class="benefits fade-wrap">
+      <h2>근무 환경 & 혜택</h2>
+      <p class="section-desc">GNB Planning은 구성원의 성장을 지원합니다.</p>
+      <div class="benefit-grid">
+          <div class="benefit-item">유연 근무제</div>
+          <div class="benefit-item">직무 교육 지원</div>
+          <div class="benefit-item">도서 구입비 지원</div>
+          <div class="benefit-item">경조사 지원</div>
+          <div class="benefit-item">간식 제공</div>
+          <div class="benefit-item">명절 선물</div>
+      </div>
+    </section>
+
+    <section class="apply-form fade-wrap" id="apply-section">
+      <h2>지금 지원하세요</h2>
+      <p class="section-desc">여러분의 열정을 기다립니다.</p>
+      
+      <form id="applyForm" enctype="multipart/form-data">
+        <label>
+            이름 <span class="required">*</span>
+            <input type="text" name="name" required placeholder="홍길동">
+        </label>
+        
+        <label>
+            이메일 <span class="required">*</span>
+            <input type="email" name="email" required placeholder="example@email.com">
+        </label>
+        
+        <label>
+            연락처
+            <input type="tel" name="phone" placeholder="010-1234-5678">
+        </label>
+        
+        <label>
+            포트폴리오 URL
+            <input type="url" name="portfolio" placeholder="https://...">
+        </label>
+        
+        <label>
+            자기소개 <span class="required">*</span>
+            <textarea name="message" required placeholder="간단한 자기소개와 지원 동기를 적어주세요."></textarea>
+        </label>
+        
+        <label>
+            첨부 파일 (이력서/포트폴리오)
+            <input type="file" name="attachment">
+        </label>
+        
+        <button type="submit" class="btn">지원하기</button>
+      </form>
+      <div id="formStatus"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4><span class="logo-g">g</span>&<span class="logo-b">b</span> Planning</h4>
+                    <p>
+                        서울시 강남구 논현로36길 31, 3층<br>
+                        Tel: 02-458-3248<br>
+                        Email: contact@gnbplanning.co.kr
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; g&b Planning. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+  <script src="js/script.js"></script> <!-- Common script -->
+  <script src="js/recruit.js"></script> <!-- Recruit specific script -->
+</body>
+</html>

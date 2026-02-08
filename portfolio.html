@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archive - GNB</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Text UX Specific Styles for Archive Page */
@@ -107,7 +108,22 @@
         @media (max-width: 768px) {
             .archive-hero h1 { font-size: 2.2rem; }
             .narrative { font-size: 1.15rem; }
-            .cta-btns { flex-direction: column; }
+            
+            .cta-btns, .next-move-btns { 
+                display: grid; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 10px; 
+                width: 100%;
+            }
+            
+            .cta-btns .btn, .next-move-btns .btn {
+                width: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -123,6 +139,7 @@
                     <li><a href="business.html">일하는 방식</a></li>
                     <li><a href="portfolio.html" class="active">포트폴리오</a></li>
                     <li><a href="contact.html">연락하기</a></li>
+                    <li><a href="recruit.html">채용</a></li>
                 </ul>
                 <div class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -176,19 +193,212 @@
                 <p>아래 사례들은<br>이러한 상황 속에서<br>진행된 작업들입니다.</p>
             </div>
 
-            <div class="archive-list">
-                <a href="portfolio/mohang-3ri.html" class="archive-list-item" style="display: block; text-decoration: none;">
-                    <div class="archive-place">태안군 소원면</div>
-                    <div class="archive-context">– 갈등으로 멈춰선 어항의 시간을 다시 흐르게 하다</div>
-                </a>
-                <a href="portfolio/munsan-myeon.html" class="archive-list-item" style="display: block; text-decoration: none;">
-                    <div class="archive-place">서천군 문산면</div>
-                    <div class="archive-context">– 계획은 있었지만 실행 주체가 없던 마을</div>
-                </a>
-                <a href="portfolio/bigeum-myeon.html" class="archive-list-item" style="display: block; text-decoration: none;">
-                    <div class="archive-place">신안군 비금면</div>
-                    <div class="archive-context">– 고립된 섬에서 연결된 공동체로</div>
-                </a>
+            <!-- Tab Navigation -->
+            <div class="portfolio-tabs fade-wrap">
+                <button class="tab-btn active" data-tab="basic">기본계획</button>
+                <button class="tab-btn" data-tab="capacity">지역역량강화</button>
+                <button class="tab-btn" data-tab="marketing">홍보·마케팅</button>
+                <button class="tab-btn" data-tab="consulting">컨설팅</button>
+            </div>
+
+            <!-- Tab Content: Basic Plan -->
+            <div id="tab-basic" class="tab-content active fade-wrap">
+                <div class="archive-list">
+                    <!-- Project 01: Ganghwa Marine -->
+                    <a href="projects/basic-plan/ganghwa-marine.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-waves"></i></div>
+                        <div class="card-meta">진행중 | 강화군</div>
+                        <h3 class="card-title">강화군 해양치유지정 및<br>해양치유산업 활성화</h3>
+                        <p class="card-desc">계획수립연구용역<br>(어촌 / 치유)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 02: Sowon -->
+                    <a href="projects/basic-plan/sowon.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-map-trifold"></i></div>
+                        <div class="card-meta">2023-2026 | 태안군</div>
+                        <h3 class="card-title">태안군 소원면<br>어촌신활력증진사업</h3>
+                        <p class="card-desc">기본계획 수립 및 건축기획 용역<br>(어촌 / 항구)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 03: Hanam Urban -->
+                    <a href="projects/basic-plan/hanam-urban.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-plant"></i></div>
+                        <div class="card-meta">완료 | 하남시</div>
+                        <h3 class="card-title">하남시 도시농업 육성 및<br>활성화 계획 수립</h3>
+                        <p class="card-desc">도시농업 활성화 연구용역<br>(도시 / 농업)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+                    
+                    <!-- Project 04: Inpyeong -->
+                    <a href="projects/basic-plan/inpyeong.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-house-line"></i></div>
+                        <div class="card-meta">2022-2024 | 태안군</div>
+                        <h3 class="card-title">태안군 인평2리<br>충남형 마을만들기사업</h3>
+                        <p class="card-desc">기본계획수립용역<br>(농촌 / 마을)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 05: Seocheon Fishery -->
+                    <a href="projects/basic-plan/seocheon-fishery.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-fish"></i></div>
+                        <div class="card-meta">완료 | 서천군</div>
+                        <h3 class="card-title">서천군 수산물 복합공간<br>조성사업 기본계획</h3>
+                        <p class="card-desc">기본계획 및 타당성 조사<br>(어촌 / 복합공간)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 06: Jumundo -->
+                    <a href="projects/basic-plan/jumundo.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-island"></i></div>
+                        <div class="card-meta">2025.08-2025.10 | 강화군</div>
+                        <h3 class="card-title">주문도 어촌신활력증진사업<br>기본계획</h3>
+                        <p class="card-desc">공간환경 마스터플랜 수립 용역<br>(도서 / 섬)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 07: Gapyeong Center -->
+                    <a href="projects/basic-plan/gapyeong-center.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-buildings"></i></div>
+                        <div class="card-meta">완료 | 가평군</div>
+                        <h3 class="card-title">가평 농업기술센터<br>중장기지도사업 연구용역</h3>
+                        <p class="card-desc">중장기 발전 계획 수립<br>(농촌 / 기술)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 08: Dangjin Smart -->
+                    <a href="projects/basic-plan/dangjin-smart.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-desktop"></i></div>
+                        <div class="card-meta">완료 | 당진시</div>
+                        <h3 class="card-title">당진시 스마트양식<br>클러스터 조성사업</h3>
+                        <p class="card-desc">예비계획 수립 용역<br>(어촌 / 양식)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 09: Gangwon R&D -->
+                    <a href="projects/basic-plan/gangwon-rnd.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-flask"></i></div>
+                        <div class="card-meta">완료 | 강원도</div>
+                        <h3 class="card-title">강원연구개발특구<br>지정 검토 대응 자료</h3>
+                        <p class="card-desc">특구 지정 검토 용역<br>(연구 / 특구)</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tab Content: Capacity Building -->
+            <div id="tab-capacity" class="tab-content fade-wrap">
+                <div class="archive-list">
+                    <!-- Project 01: Muan-Wando -->
+                    <a href="projects/regional-capacity/muan-wando.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-anchor"></i></div>
+                        <div class="card-meta">2019~ | 무안군/완도군</div>
+                        <h3 class="card-title">신월항, 가학항, 솔지항<br>어촌뉴딜사업 지역역량강화</h3>
+                        <p class="card-desc">주민자치역량강화 교육,<br>홍보마케팅 컨설팅</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 02: Incheon Special -->
+                    <a href="projects/regional-capacity/incheon-special.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-storefront"></i></div>
+                        <div class="card-meta">2021 | 인천 어촌특화지원센터</div>
+                        <h3 class="card-title">2021년 인천 어촌특화지원<br>기초역량강화</h3>
+                        <p class="card-desc">내가 / 을왕 / 덕적 / 문갑<br>4개소 컨설팅 및 교육</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 03: Buyeo Seokseong -->
+                    <a href="projects/regional-capacity/buyeo-seokseong.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-buildings"></i></div>
+                        <div class="card-meta">2021-2025 | 한국농어촌공사</div>
+                        <h3 class="card-title">부여군 석성면<br>기초생활거점육성사업</h3>
+                        <p class="card-desc">경관디자인, 전문가 육성,<br>시설운영관리 컨설팅</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 04: Seocheon Songseok -->
+                    <a href="projects/regional-capacity/seocheon-songseok.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-boat"></i></div>
+                        <div class="card-meta">2020-2022 | 서천군</div>
+                        <h3 class="card-title">서천군 송석항<br>어촌뉴딜사업 지역역량강화</h3>
+                        <p class="card-desc">주민 교육 및 컨설팅 수행</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 05: Mandae Baeksajang -->
+                    <a href="projects/regional-capacity/mandae-baeksajang.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-users-three"></i></div>
+                        <div class="card-meta">2021-2023 | 태안군</div>
+                        <h3 class="card-title">만대항, 백사장항 어촌뉴딜<br>지역역량강화사업</h3>
+                        <p class="card-desc">교육컨설팅, 홍보마케팅,<br>지역협의체 운영 지원</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tab Content: PR/Marketing -->
+            <div id="tab-marketing" class="tab-content fade-wrap">
+                <div class="archive-list">
+                    <!-- Project 01: Meal Kit -->
+                    <a href="projects/marketing/meal-kit.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-bowl-food"></i></div>
+                        <div class="card-meta">Product Development</div>
+                        <h3 class="card-title">밀키트 및 특화상품 개발</h3>
+                        <p class="card-desc">지역 농수산물을 활용한<br>브랜드 상품 기획 및 패키지 개발</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 02: Promo Video -->
+                    <a href="projects/marketing/promo-video.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-film-strip"></i></div>
+                        <div class="card-meta">Video Production</div>
+                        <h3 class="card-title">홍보영상 기획 및 제작</h3>
+                        <p class="card-desc">유튜브 콘텐츠, 지역 홍보 영상,<br>행사 스케치 영상 제작</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 03: Editorial Design -->
+                    <a href="projects/marketing/editorial-design.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-pencil-circle"></i></div>
+                        <div class="card-meta">Editorial Design</div>
+                        <h3 class="card-title">리플렛 및 홍보물 디자인</h3>
+                        <p class="card-desc">마을 지도, 레시피북,<br>행사 초청장, 브랜드 굿즈 제작</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tab Content: Consulting -->
+            <div id="tab-consulting" class="tab-content fade-wrap">
+                <div class="archive-list">
+                    <!-- Project 01: Yangju Rice -->
+                    <a href="projects/consulting/yangju-rice.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-grains"></i></div>
+                        <div class="card-meta">2021 | 양주시</div>
+                        <h3 class="card-title">양주시 쌀교육농장<br>컨설팅</h3>
+                        <p class="card-desc">체험 교육 프로그램 개발 및<br>리플렛 제작</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 02: Yeoju Aroma -->
+                    <a href="projects/consulting/yeoju-aroma.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-flower-lotus"></i></div>
+                        <div class="card-meta">2021 | 여주시</div>
+                        <h3 class="card-title">여주시 아로마 체험농장<br>치유농업 컨설팅</h3>
+                        <p class="card-desc">농촌체험농장 컨설팅 및<br>치유농장 홍보전략 수립</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+
+                    <!-- Project 03: Cheongju Farm -->
+                    <a href="projects/consulting/cheongju-farm.html" class="portfolio-card">
+                        <div class="card-icon"><i class="ph ph-chalkboard-teacher"></i></div>
+                        <div class="card-meta">2021 | 청주시</div>
+                        <h3 class="card-title">청주시 농촌교육농장<br>품질 향상 컨설팅</h3>
+                        <p class="card-desc">(사)한국농어촌관광학회<br>자문기관 수행</p>
+                        <div class="card-link">자세히 보기 <i class="ph ph-arrow-right"></i></div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -267,8 +477,66 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script>
+        // Load More Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const itemsPerBatch = 3;
+            // Initially show 9 items (as Basic Plan has 9), or 6?
+            // User request: "Load More (3 items at a time)".
+            let initialVisible = 3;
+            
+            const tabs = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                const list = tab.querySelector('.archive-list');
+                if (!list) return;
+                
+                const items = list.querySelectorAll('.portfolio-card');
+                
+                // Hide items beyond initialVisible
+                items.forEach((item, index) => {
+                    if (index >= initialVisible) {
+                        item.style.display = 'none';
+                    }
+                });
+
+                if (items.length > initialVisible) {
+                    const loadMoreBtnContainer = document.createElement('div');
+                    loadMoreBtnContainer.className = 'load-more-container';
+                    loadMoreBtnContainer.style.textAlign = 'center';
+                    loadMoreBtnContainer.style.marginTop = '40px';
+                    loadMoreBtnContainer.style.width = '100%';
+                    loadMoreBtnContainer.style.gridColumn = '1 / -1'; // Span full width if in grid (but it's outside grid)
+                    
+                    const btn = document.createElement('button');
+                    btn.className = 'btn btn-outline';
+                    btn.innerText = '더 보기';
+                    btn.style.borderColor = 'var(--text-main)';
+                    btn.style.color = 'var(--text-main)';
+                    btn.style.cursor = 'pointer';
+                    
+                    btn.addEventListener('click', () => {
+                        let hiddenItems = Array.from(items).filter(item => item.style.display === 'none');
+                        // Show next batch
+                        for (let i = 0; i < itemsPerBatch && i < hiddenItems.length; i++) {
+                            hiddenItems[i].style.display = 'block'; 
+                        }
+                        
+                        // Check if more hidden
+                        hiddenItems = Array.from(items).filter(item => item.style.display === 'none');
+                        if (hiddenItems.length === 0) {
+                            loadMoreBtnContainer.style.display = 'none';
+                        }
+                    });
+                    
+                    loadMoreBtnContainer.appendChild(btn);
+                    // Append after the list
+                    tab.appendChild(loadMoreBtnContainer);
+                }
+            });
+        });
+
         // Individual page fade logic reinforcement
         document.addEventListener("DOMContentLoaded", () => {
              const fades = document.querySelectorAll(".fade-wrap");

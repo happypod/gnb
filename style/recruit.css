@@ -309,3 +309,50 @@
         padding: 60px 20px !important;
     }
 }
+
+/* UX Polish Additions */
+.hero-keywords {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+    font-size: 1.2rem;
+}
+
+.hero-desc {
+    max-width: 560px;
+    margin: 0 auto;
+    word-break: keep-all;
+}
+
+.persona-check {
+    list-style: none;
+    padding: 0;
+    margin: 32px auto;
+    max-width: 420px;
+    text-align: left;
+}
+
+.persona-check li {
+    padding: 10px 0;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e7eb;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.persona-check li::before {
+    content: "✔";
+    color: var(--accent);
+    font-weight: 800;
+}
+
+.form-foot {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 40px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}

@@ -336,12 +336,50 @@ footer {
 .point-box {
     background: var(--accent-soft);
     border-left: 4px solid var(--accent);
-    padding: 24px 28px;
-    margin: 60px 0;
-    font-size: 1.15rem;
+    padding: 22px 26px;
+    margin: 40px auto;
+    max-width: 720px;
+    border-radius: 12px;
     line-height: 1.7;
     color: var(--text-main);
 }
+.point-box strong { color: var(--accent-strong); }
+
+/* Scan UX Common Components */
+.hero-keywords{
+  font-weight: 700;
+  color: var(--accent);
+  margin: 14px 0 12px;
+  letter-spacing: 0.02em;
+}
+
+.hero-desc{
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.scan-list{
+  list-style: none;
+  padding: 0;
+  margin: 20px auto 10px;
+  max-width: 520px;
+  text-align: left;
+}
+
+.scan-list li{
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.scan-hint{
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 18px;
+  line-height: 1.7;
+}
+
 
 .list-narrative ul {
     list-style: none;
@@ -708,18 +746,6 @@ footer {
     opacity: 0.8;
 }
 
-/* Point Box (Narrative Emphasis) */
-.point-box {
-    background: var(--accent-soft);
-    border-left: 4px solid var(--accent);
-    padding: 24px 28px;
-    margin: 60px 0;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-main);
-}
-.point-box strong { color: var(--accent-strong); }
-
 /* =========================================
    11. Responsive Global
    ========================================= */
@@ -783,5 +809,28 @@ footer {
   /* Portfolio Grid */
   .archive-list {
       grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile-only / Desktop-only helpers */
+.mobile-only { display: none !important; }
+/* desktop-only defaults to visible (inherit display) */
+
+@media (max-width: 768px){
+  .mobile-only { display: block !important; }
+  .desktop-only { display: none !important; }
+
+  /* 모바일 텍스트 압축(가독성) */
+  .hero-desc, .section-desc, .scan-hint{
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .point-box{
+    padding: 16px 16px;
+    margin: 24px auto;
+    font-size: 1rem;
+  }
+  .scan-list li{
+    padding: 8px 0;
   }
 }

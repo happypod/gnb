@@ -35,36 +35,39 @@
     <section class="text-section contact-hero">
         <div class="container fade-wrap">
             <h1>우리는<br>먼저 상황을 듣습니다.</h1>
-            <p style="margin-top: 30px; font-size: 1.5rem; color: var(--text-main); font-weight: 500;">그 다음<br>해결의 실마리를 함께 찾습니다.</p>
-            <p style="margin-top: 60px;">g&b Planning / Contact</p>
-        </div>
-    </section>
-
-    <!-- [SECTION 02] 이 페이지의 역할 — 기대치 정렬 (Muted BG) -->
-    <section class="text-section bg-muted">
-        <div class="container narrative fade-wrap">
-            <p>
-                이 페이지는<br>
-                견적보다, 상황을 먼저<br>
-                이야기하는 곳입니다.
+            <p class="hero-keywords mobile-only">먼저 듣고 · 함께 정리</p>
+            <p class="hero-keywords desktop-only">먼저 듣기 · 함께 정리 · 다음 단계 제안</p>
+            
+            <p class="hero-desc mobile-only">
+                상황을 간단히 남겨주세요.<br>
+                정리되지 않아도 괜찮습니다.
             </p>
-            <p style="margin-top: 50px;">
-                지금 겪고 있는 어려움이 무엇인지,<br>
-                어디서부터 풀어야 할지<br>
-                함께 정리해드리는 시작점입니다.
+            <p class="hero-desc desktop-only" style="color: var(--text-muted);">
+                해결책을 바로 제시하기보다,<br>
+                지금 겪고 있는 어려움을 듣고 실마리를 함께 찾습니다.
             </p>
         </div>
     </section>
 
-    <!-- [SECTION 03] 우리가 듣고 싶은 이야기 — 질문형 안내 -->
+    <!-- [SECTION 02-03 Integrated] 안내 메시지 -->
     <section class="text-section">
-        <div class="container narrative fade-wrap">
-            <div class="point-box">
-                이런 고민이 있다면,<br>언제든 문을 두드려주세요.
+        <div class="container fade-wrap">
+            <div class="point-box mobile-only">
+                <strong>짧게 남겨주셔도 충분합니다.</strong><br>
+                고민되는 지점 하나만 적어주세요.
+            </div>
+            <div class="point-box desktop-only">
+                <strong>짧게 남겨주셔도 충분합니다.</strong><br>
+                지금 상황 / 가장 고민되는 지점 / 기대하는 도움 정도만 적어 주세요.<br>
+                견적보다 상황을 먼저 이야기하는 곳입니다.
             </div>
             
             <div class="list-narrative">
-                <ul>
+                <ul class="mobile-only">
+                    <li>지금 상황</li>
+                    <li>가장 막히는 지점</li>
+                </ul>
+                <ul class="desktop-only">
                     <li>계획은 있지만, 실행의 첫 단추를 끼우기 어려울 때</li>
                     <li>주민과 행정 사이에서 통역과 조정이 필요할 때</li>
                     <li>사업은 시작됐지만, 체계적인 구조가 필요할 때</li>
@@ -73,17 +76,42 @@
         </div>
     </section>
 
+    <!-- [SECTION 03] 우리가 듣고 싶은 이야기 — 질문형 안내 -->
+    <section class="text-section">
+        <div class="container narrative fade-wrap">
+            <div class="list-narrative">
+                <ul class="mobile-only">
+                    <li>지금 상황</li>
+                    <li>가장 막히는 지점</li>
+                </ul>
+                <ul class="desktop-only">
+                    <li>계획은 있지만, 실행의 첫 단추를 끼우기 어려울 때</li>
+                    <li>주민과 행정 사이에서 통역과 조정이 필요할 때</li>
+                    <li>사업은 시작됐지만, 체계적인 구조가 필요할 때</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- [SECTION 04] 연락 방식 & [SECTION 05] 메시지 입력 & [SECTION 06] 버튼 -->
     <form class="text-section contact-form-section" id="contactForm">
         <div class="container fade-wrap">
             
             <!-- SECTION 04: 연락 방식 -->
-            <div class="narrative" style="margin-bottom: 40px;">
-                <p>연락은<br>편하신 방법으로 주시면 됩니다.</p>
-                <p style="font-size: 1.1rem; color: var(--text-muted); margin-top: -20px; font-weight: 500;">
-                    상황을 간단히 적어주셔도 좋고, 연락 가능한 시간만 남겨주셔도 충분합니다.<br>
-                    부담 갖지 않으셔도 됩니다.
+            <div class="narrative" style="margin-bottom: 40px; text-align: center;">
+                <p class="mobile-only" style="font-size: 1rem; color: var(--text-muted); margin-bottom: 10px;">
+                    간단한 문의도 환영합니다.
                 </p>
+                <div class="mobile-only" style="font-size: 0.95rem; color: #888;">
+                    02-458-3248 | contact@gnbplanning.co.kr
+                </div>
+
+                <p class="desktop-only" style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 10px;">
+                    연락 가능한 시간만 남겨주시면 연락드리겠습니다.
+                </p>
+                <div class="desktop-only" style="font-size: 0.95rem; color: #888;">02-458-3248 | contact@gnbplanning.co.kr</div>
             </div>
 
             <div class="form-group">
@@ -92,11 +120,8 @@
             </div>
 
             <!-- SECTION 05: 메시지 입력 -->
-            <div class="narrative" style="margin-top: 60px; margin-bottom: 40px;">
+            <div class="narrative" style="margin-top: 40px; margin-bottom: 20px;">
                 <p>지금의 상황을<br>자유롭게 적어주세요.</p>
-                <p style="font-size: 1rem; color: var(--text-muted); margin-top: -20px;">
-                    정리되지 않은 날것의 이야기도 괜찮습니다.
-                </p>
             </div>
 
             <div class="form-group">

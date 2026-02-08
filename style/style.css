@@ -834,3 +834,96 @@ footer {
     padding: 8px 0;
   }
 }
+
+/* Mobile Navigation Redesign - Card Style */
+.mobile-only-icon { display: none; }
+.nav-desc { display: none; }
+
+@media (max-width: 768px) {
+    /* Reveal Elements */
+    .mobile-only-icon { 
+        display: block; 
+        font-size: 2rem; 
+        margin-bottom: 12px; 
+        color: var(--primary-color);
+        transition: color 0.3s;
+    }
+    .nav-desc { 
+        display: block; 
+        font-size: 0.8rem; 
+        color: #999; 
+        font-weight: 400; 
+        margin-top: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Nav Container Grid */
+    .nav-links {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+        padding: 30px 20px !important;
+        background-color: #f5f7fa !important; /* Soft gray for contrast */
+        align-content: start;
+        /* Ensure full screen height minus header */
+        top: 60px;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+        flex-direction: unset !important;
+    }
+
+    /* Card Item Style */
+    .nav-links li {
+        width: auto !important;
+        margin: 0 !important;
+        opacity: 0;
+        animation: slideUpFade 0.4s ease forwards;
+    }
+    
+    @keyframes slideUpFade {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.15s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.25s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.3s; }
+
+    .nav-links li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        height: 100%; /* Equal height cards */
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: 1px solid transparent;
+    }
+
+    .nav-links li a:active {
+        transform: scale(0.96);
+        background: #fff;
+    }
+
+    .nav-links li a.active {
+        border-color: var(--primary-color);
+        background: #fff;
+    }
+    
+    .nav-links li a.active .mobile-only-icon {
+        color: var(--accent);
+    }
+
+    .nav-links li a span {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #333;
+    }
+}

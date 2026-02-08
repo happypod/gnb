@@ -295,7 +295,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     .recruit-container section {
-        padding: 0;
+        padding: 0 20px;
     }
     
     .apply-form {

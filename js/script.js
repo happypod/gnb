@@ -85,7 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "company.html",    // 소개
     "business.html",   // 일하는 방식
     "portfolio.html",  // 포트폴리오
-    "contact.html"     // 연락하기
+    "contact.html",    // 연락하기
+    "recruit.html"     // 채용
   ];
 
   // 현재 페이지 파일명
@@ -101,7 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "company.html": "소개",
     "business.html": "일하는 방식",
     "portfolio.html": "포트폴리오",
-    "contact.html": "연락하기"
+    "contact.html": "연락하기",
+    "recruit.html": "채용"
   };
 
   // 무한 순환 인덱스 계산

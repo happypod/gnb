@@ -37,7 +37,7 @@ if (contactForm) {
             // 1. https://formspree.io/ 사이트에 접속해 회원가입/로그인 합니다.
             // 2. 'New Form'을 생성하고 'Send emails to'에 'happyfac@naver.com'을 입력합니다.
             // 3. 생성된 Form의 ID (예: xnqbkqzj)를 아래 URL의 'YOUR_FORM_ID' 부분에 붙여넣으세요.
-            const formId = "YOUR_FORM_ID"; 
+            const formId = "maqdykga"; 
             const url = `https://formspree.io/f/${formId}`;
 
             // Check if user set the ID

@@ -20,7 +20,7 @@ if (form) {
         // 1. https://formspree.io/ 접속 -> New Form 생성
         // 2. target email에 happyfac@naver.com 설정
         // 3. 발급받은 Form ID를 아래 "YOUR_FORM_ID"에 입력하세요.
-        const formId = "YOUR_FORM_ID"; 
+        const formId = "maqdykga"; 
         const formUrl = `https://formspree.io/f/${formId}`; 
         
         let res;

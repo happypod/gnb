@@ -32,6 +32,11 @@
   /* Logo Points */
   --point-green: #376E3F;     /* Muted Forest Green */
   --point-blue: #325886;      /* Muted River Blue */
+  
+  /* Accent System (Existing Assets Promoted) */
+  --accent: var(--point-green);
+  --accent-strong: #2f5e36;
+  --accent-soft: rgba(55, 110, 63, 0.12);
 
   /* Typography */
   --font-main: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
@@ -59,6 +64,10 @@ a {
   text-decoration: none;
   color: inherit;
   transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent);
 }
 
 ul {
@@ -193,6 +202,28 @@ footer {
   opacity: 0.8;
 }
 
+/* CTA Primary Button (Accent) */
+.btn.cta {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+}
+
+.btn.cta:hover {
+    background: var(--accent-strong);
+    opacity: 1;
+}
+
+.cta-box .btn-outline {
+    border-color: var(--text-main);
+    color: var(--text-main);
+}
+
+.cta-box .btn-outline:hover {
+    background: var(--text-main);
+    color: #fff;
+}
+
 .btn-outline {
   background-color: transparent;
   border: 2px solid var(--white);
@@ -296,6 +327,22 @@ footer {
     font-weight: 600;
 }
 
+.narrative a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+/* Point Quote Box */
+.point-box {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 24px 28px;
+    margin: 60px 0;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-main);
+}
+
 .list-narrative ul {
     list-style: none;
     padding: 0;
@@ -362,7 +409,7 @@ footer {
 
 .thin-line {
     border: 0;
-    border-top: 1px solid #e2e8f0;
+    border-top: 2px solid var(--accent-soft);
     margin: 60px 0;
 }
 
@@ -519,7 +566,7 @@ footer {
 .portfolio-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-    border-color: var(--primary-color);
+    border-color: var(--accent);
 }
 
 .card-icon {
@@ -530,7 +577,7 @@ footer {
 }
 
 .portfolio-card:hover .card-icon {
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .card-meta {
@@ -573,7 +620,7 @@ footer {
 }
 
 .portfolio-card:hover .card-link {
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .portfolio-card:hover .card-link i {
@@ -661,10 +708,24 @@ footer {
     opacity: 0.8;
 }
 
+/* Point Box (Narrative Emphasis) */
+.point-box {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 24px 28px;
+    margin: 60px 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-main);
+}
+.point-box strong { color: var(--accent-strong); }
+
 /* =========================================
    11. Responsive Global
    ========================================= */
 @media (max-width: 768px) {
+    .narrative p { margin-bottom: 2.2rem; }
+    .text-section { padding: 80px 0; }
   /* Navigation */
   .nav-links {
     display: none;

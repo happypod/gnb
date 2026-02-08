@@ -62,8 +62,9 @@
     </header>
 
     <!-- [SECTION 01] PAGE HERO — 문의가 아닌 ‘대화의 성격 규정’ -->
-    <section class="text-section contact-hero">
-        <div class="container fade-wrap">
+    <section class="text-section contact-hero bg-pattern-dashed" style="position: relative; overflow: hidden;">
+        <div class="pattern-overlay"></div>
+        <div class="container fade-wrap" style="position: relative; z-index: 2;">
             <h1>우리는<br>먼저 상황을 듣습니다.</h1>
             <p class="hero-keywords mobile-only">먼저 듣고 · 함께 정리</p>
             <p class="hero-keywords desktop-only">먼저 듣기 · 함께 정리 · 다음 단계 제안</p>
@@ -109,6 +110,11 @@
 
 
 
+
+    <!-- Design Pattern: Dashed Divider -->
+    <div class="container">
+        <hr class="dashed-divider">
+    </div>
 
     <!-- [SECTION 04] 연락 방식 & [SECTION 05] 메시지 입력 & [SECTION 06] 버튼 -->
     <form class="text-section contact-form-section" id="contactForm">

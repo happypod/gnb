@@ -936,3 +936,236 @@ footer {
         color: #333;
     }
 }
+
+/* =========================================
+   12. Design Patterns (New)
+   ========================================= */
+
+/* Soft Background Section (Index) */
+.section-soft {
+  background: var(--accent-soft);
+  padding: 100px 0;
+}
+
+/* Vertical Accent Block (Company) */
+.vertical-accent {
+  border-left: 3px solid var(--accent);
+  padding-left: 24px;
+}
+
+/* Process Step Card (Business) */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.process-card {
+  border: 1px solid #e5e7eb;
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+.process-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.process-num {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.process-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.process-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Role Tag (Portfolio) */
+.role-tag {
+  font-size: 0.85rem;
+  color: var(--accent-strong);
+  border: 1px solid var(--accent-soft);
+  background: rgba(55, 110, 63, 0.05);
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+/* Dashed Divider (Contact) */
+.dashed-divider {
+  border: 0;
+  border-top: 1px dashed #d1d5db;
+  margin: 60px 0;
+  width: 100%;
+  height: 1px;
+}
+
+/* Value Card (Recruit) */
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.value-card {
+  border-radius: 20px;
+  padding: 40px 32px;
+  background: #f9fafb;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    background: var(--white);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.value-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.value-desc {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Icon+Keyword Block (Company) */
+.keyword-block {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    justify-content: center; /* or flex-start based on design */
+}
+
+.keyword-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.keyword-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.keyword-text {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Responsive for New Patterns */
+@media (max-width: 768px) {
+    .process-grid, .value-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .keyword-block {
+        gap: 20px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================================
+   13. Visual System (GIS/Line Patterns)
+   ========================================= */
+
+/* Common Pattern Styles */
+.pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.05; /* Default low opacity */
+}
+
+/* 1. Index: GIS Contour Pattern */
+.bg-pattern-contour {
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q 250 50 500 100 T 1000 100 T 1500 50' stroke='%23376E3F' fill='none' stroke-width='1'/%3E%3Cpath d='M0 200 Q 250 150 500 200 T 1000 200 T 1500 150' stroke='%23376E3F' fill='none' stroke-width='1'/%3E%3Cpath d='M0 300 Q 250 250 500 300 T 1000 300 T 1500 250' stroke='%23376E3F' fill='none' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+/* 2. Company: Vertical Line + Nodes */
+.bg-pattern-vertical {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='20' y1='0' x2='20' y2='100' stroke='%23376E3F' stroke-width='1' stroke-dasharray='4 4'/%3E%3Ccircle cx='20' cy='50' r='2' fill='%23376E3F'/%3E%3C/svg%3E");
+    background-size: 40px 100px;
+}
+
+/* 3. Business: Flow Line */
+.bg-pattern-flow {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 25 0 50 20 T 100 20' stroke='%23376E3F' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 100px 40px;
+}
+
+/* 4. Portfolio: Topography + Dots */
+.bg-pattern-topo {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q 25 25 50 50 T 100 50' stroke='%23376E3F' fill='none' stroke-width='0.5' opacity='0.5'/%3E%3Ccircle cx='50' cy='50' r='1' fill='%23376E3F'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+}
+
+/* 5. Contact: Dashed Curve */
+.bg-pattern-dashed {
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q 50 0 100 100 T 200 100' stroke='%23376E3F' fill='none' stroke-width='1' stroke-dasharray='5 5'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    background-position: center;
+}
+
+/* 6. Recruit: Network Nodes */
+.bg-pattern-network {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23376E3F'/%3E%3Ccircle cx='80' cy='80' r='2' fill='%23376E3F'/%3E%3Cline x1='20' y1='20' x2='80' y2='80' stroke='%23376E3F' stroke-width='0.5'/%3E%3Cline x1='80' y1='20' x2='20' y2='80' stroke='%23376E3F' stroke-width='0.5' opacity='0.5'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+}
+
+/* Ensure patterns don't interfere with readability */
+section {
+    position: relative;
+    z-index: 1; /* Content above pattern */
+}
+
+/* Specific opacity adjustments */
+.section-soft .pattern-overlay { opacity: 0.03; }
+.bg-muted .pattern-overlay { opacity: 0.05; }

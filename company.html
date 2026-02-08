@@ -62,8 +62,9 @@
     </header>
 
     <!-- Page Header -->
-    <div class="identity-header">
-        <div class="container">
+    <div class="identity-header bg-pattern-vertical" style="position: relative; overflow: hidden;">
+        <div class="pattern-overlay"></div>
+        <div class="container" style="position: relative; z-index: 2;">
             <h1 style="font-size: 3rem; color: var(--primary-color);">Identity</h1>
         </div>
     </div>
@@ -85,20 +86,40 @@
                     지역개발 컨설팅 회사입니다.
                 </p>
                 
-                <p style="margin-bottom: 40px;">
-                    우리는 지역의 문제를<br>
-                    단순히 ‘계획의 부족’으로 보지 않습니다.<br>
-                    대부분의 문제는<br>
-                    이해관계의 충돌, 역할의 불분명함,<br>
-                    실행 구조의 부재에서 비롯된다고 생각합니다.
-                </p>
+                <div class="vertical-accent">
+                    <p style="margin-bottom: 30px; font-size: 1.3rem; color: var(--primary-color); font-weight: 700;">
+                        우리는 지역의 문제를<br>
+                        단순히 ‘계획의 부족’으로 보지 않습니다.
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        대부분의 문제는<br>
+                        이해관계의 충돌, 역할의 불분명함,<br>
+                        실행 구조의 부재에서 비롯된다고 생각합니다.
+                    </p>
+                </div>
 
-                <p style="margin-bottom: 40px;">
+                <p style="margin-top: 40px; margin-bottom: 40px;">
                     g&b Planning은<br>
                     주민과 행정, 실행 주체 사이의 관계를 조정하고<br>
                     각자의 역할이 자연스럽게 작동하도록<br>
                     구조를 만드는 일을 해왔습니다.
                 </p>
+
+                <!-- Design Pattern: Icon+Keyword Block -->
+                <div class="keyword-block">
+                    <div class="keyword-item">
+                        <div class="keyword-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <span class="keyword-text">현장</span>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-icon"><i class="fas fa-user-friends"></i></div>
+                        <span class="keyword-text">관계</span>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-icon"><i class="fas fa-project-diagram"></i></div>
+                        <span class="keyword-text">구조</span>
+                    </div>
+                </div>
 
                 <div class="point-box">
                     문서보다 현장을,<br>

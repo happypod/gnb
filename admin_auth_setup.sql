@@ -220,6 +220,10 @@ using (
   and public.is_admin_user()
 );
 
--- After creating an email/password user in Supabase Auth, add that user here:
-insert into public.admin_users (id, email)
-values ('YOUR-AUTH-USER-UUID', 'admin@example.com');
+-- After creating an email/password user in Supabase Auth, run a query like this
+-- with the real Auth user UUID and email:
+--
+-- insert into public.admin_users (id, email)
+-- values ('YOUR_AUTH_USER_UUID', 'admin@example.com')
+-- on conflict (id) do update
+-- set email = excluded.email;

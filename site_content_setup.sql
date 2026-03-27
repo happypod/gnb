@@ -81,36 +81,42 @@ alter table public.recruit_notices enable row level security;
 alter table public.gallery_items enable row level security;
 alter table public.contact_inquiries enable row level security;
 
+drop policy if exists "Public history read" on public.company_history_events;
 create policy "Public history read"
 on public.company_history_events
 for select
 to anon, authenticated
 using (true);
 
+drop policy if exists "Public news read" on public.company_news;
 create policy "Public news read"
 on public.company_news
 for select
 to anon, authenticated
 using (true);
 
+drop policy if exists "Public projects read" on public.performance_projects;
 create policy "Public projects read"
 on public.performance_projects
 for select
 to anon, authenticated
 using (true);
 
+drop policy if exists "Public partners read" on public.performance_partners;
 create policy "Public partners read"
 on public.performance_partners
 for select
 to anon, authenticated
 using (true);
 
+drop policy if exists "Public recruit read" on public.recruit_notices;
 create policy "Public recruit read"
 on public.recruit_notices
 for select
 to anon, authenticated
 using (true);
 
+drop policy if exists "Public gallery read" on public.gallery_items;
 create policy "Public gallery read"
 on public.gallery_items
 for select
@@ -129,6 +135,7 @@ values ('gallery', 'gallery', true)
 on conflict (id) do update
 set public = excluded.public;
 
+drop policy if exists "Public gallery image read" on storage.objects;
 create policy "Public gallery image read"
 on storage.objects
 for select

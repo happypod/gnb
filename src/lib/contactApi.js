@@ -9,7 +9,8 @@ const buildHeaders = () => ({
   apikey: SUPABASE_ANON_KEY,
   Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
   'Content-Type': 'application/json',
-  Prefer: 'return=representation',
+  // Public inquiries only need insert success; returning rows would require a select policy.
+  Prefer: 'return=minimal',
 });
 
 const readErrorMessage = async (response) => {
@@ -47,6 +48,5 @@ export async function createContactInquiry(values) {
     throw new Error(await readErrorMessage(response));
   }
 
-  const [savedRow] = await response.json();
-  return savedRow;
+  return { success: true };
 }

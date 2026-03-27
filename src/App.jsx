@@ -142,6 +142,38 @@ const mergeHistoryEntries = (baseItems = [], incomingItems = []) => {
   return Array.from(grouped.entries()).map(([year, events]) => ({ year, events }));
 };
 
+const getNewsTimestamp = (item) => {
+  const rawDate = String(item?.date ?? '').trim();
+  if (!rawDate) return 0;
+
+  const normalized = rawDate.replace(/[./]/g, '-');
+  const parsed = new Date(normalized);
+  if (!Number.isNaN(parsed.getTime())) {
+    return parsed.getTime();
+  }
+
+  const match = rawDate.match(/^(\d{4})[.-]?(\d{2})[.-]?(\d{2})$/);
+  if (!match) return 0;
+
+  const [, year, month, day] = match;
+  return new Date(`${year}-${month}-${day}`).getTime() || 0;
+};
+
+const sortNewsItemsByNewest = (items = []) => (
+  [...items].sort((a, b) => {
+    const timeDiff = getNewsTimestamp(b) - getNewsTimestamp(a);
+    if (timeDiff !== 0) return timeDiff;
+
+    const idA = Number(a?.id);
+    const idB = Number(b?.id);
+    if (Number.isFinite(idA) && Number.isFinite(idB)) {
+      return idB - idA;
+    }
+
+    return String(b?.title ?? '').localeCompare(String(a?.title ?? ''), 'ko');
+  })
+);
+
 const getGalleryItemKey = (item) => `${item?.title}|${item?.src}`;
 const getProjectItemKey = (item) => `${item?.title}|${item?.client}|${item?.period}`;
 const getNewsItemKey = (item) => `${item?.title}|${item?.date}`;
@@ -481,7 +513,7 @@ export default function App() {
   // --- 임시 DB 상태 ---
   const [galleryData, setGalleryData] = useState(DEFAULT_GALLERY_DATA);
   const [projectsData, setProjectsData] = useState(DEFAULT_PROJECTS_DATA);
-  const [newsData, setNewsData] = useState(DEFAULT_NEWS_DATA);
+  const [newsData, setNewsData] = useState(() => sortNewsItemsByNewest(DEFAULT_NEWS_DATA));
   const [recruitData, setRecruitData] = useState(DEFAULT_RECRUIT_DATA);
   const [historyData, setHistoryData] = useState(DEFAULT_HISTORY_DATA);
   const [partnersData, setPartnersData] = useState(DEFAULT_PARTNERS_DATA);
@@ -494,6 +526,7 @@ export default function App() {
     authType: null, uploadType: null
   });
   const projectModalScrollRef = useRef(null);
+  const orderedNewsData = sortNewsItemsByNewest(newsData);
 
   const isAnyModalOpen = isMobileMenuOpen || isContactModalOpen || Object.values(activeModal).some(val => val !== null);
 
@@ -555,7 +588,7 @@ export default function App() {
           setHistoryData(mergeHistoryEntries(DEFAULT_HISTORY_DATA, result.history));
         }
         if (Array.isArray(result.news)) {
-          setNewsData(mergeUniqueItems(DEFAULT_NEWS_DATA, result.news, getNewsItemKey));
+          setNewsData(sortNewsItemsByNewest(mergeUniqueItems(DEFAULT_NEWS_DATA, result.news, getNewsItemKey)));
         }
         if (Array.isArray(result.projects)) {
           setProjectsData(mergeUniqueItems(DEFAULT_PROJECTS_DATA, result.projects, getProjectItemKey));
@@ -876,7 +909,7 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-                {newsData.slice(0, 3).map((news) => (
+                {orderedNewsData.slice(0, 3).map((news) => (
                   <div key={news.id} onClick={() => openModal('news', news)} className="group bg-gray-50 rounded-[1.5rem] p-6 md:p-8 cursor-pointer border border-gray-100 transition-all duration-500 hover:-translate-y-2 hover:bg-[#0B2053] hover:border-[#0B2053] hover:shadow-2xl">
                     <div className="flex justify-between items-center mb-4 md:mb-6">
                       <span className={`px-3 py-1 rounded-full text-[11px] md:text-xs font-bold transition-colors ${news.type === '공지' ? 'bg-[#85C441]/20 text-[#85C441] group-hover:bg-[#85C441] group-hover:text-white' : 'bg-white text-gray-600 shadow-sm group-hover:bg-white/20 group-hover:text-white group-hover:shadow-none'}`}>
@@ -921,7 +954,10 @@ export default function App() {
       if (!newsUploadTitle || !newsUploadContent) return;
       const today = new Date();
       const formattedDate = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
-      setNewsData([{ id: Date.now(), type: newsUploadType, title: newsUploadTitle, date: formattedDate, content: newsUploadContent }, ...newsData]);
+      setNewsData(sortNewsItemsByNewest([
+        ...newsData,
+        { id: Date.now(), type: newsUploadType, title: newsUploadTitle, date: formattedDate, content: newsUploadContent },
+      ]));
       closeModal('uploadType'); setNewsUploadType('소식'); setNewsUploadTitle(''); setNewsUploadContent('');
       alert('지앤비소식이 성공적으로 등록되었습니다.');
     };
@@ -1041,7 +1077,7 @@ export default function App() {
                 </div>
 
                 <div className="space-y-4">
-                  {newsData.map((news, idx) => (
+                  {orderedNewsData.map((news, idx) => (
                     <div key={news.id} onClick={() => openModal('news', news)} className="reveal bg-white p-6 md:p-8 rounded-2xl md:rounded-[1.5rem] shadow-sm border border-gray-100 hover:border-[#0B2053] hover:shadow-xl transform hover:-translate-y-1 transition-all duration-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 cursor-pointer group" style={{ transitionDelay: `${idx * 0.1}s` }}>
                       <div className="w-full">
                         <div className="flex items-center gap-2.5 md:gap-3 mb-3 md:mb-4">
@@ -1061,7 +1097,7 @@ export default function App() {
                       </div>
                     </div>
                   ))}
-                  {newsData.length === 0 && (
+                  {orderedNewsData.length === 0 && (
                     <div className="text-center py-12 text-gray-500 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
                       등록된 소식이 없습니다.
                     </div>

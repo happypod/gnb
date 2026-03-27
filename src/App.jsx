@@ -740,34 +740,9 @@ export default function App() {
             </a>
           </div>
         </div>
-        <div className="mb-8 md:mb-10">
-          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-2.5 md:gap-3">
-            <button
-              type="button"
-              onClick={() => navigateTo('main')}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs md:text-sm font-semibold text-white transition-colors hover:border-[#85C441] hover:text-[#85C441]"
-            >
-              메인 바로가기 <ArrowRight size={14} />
-            </button>
-            <button
-              type="button"
-              onClick={() => navigateTo('performance', 'list')}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs md:text-sm font-semibold text-white transition-colors hover:border-[#85C441] hover:text-[#85C441]"
-            >
-              사업실적 바로가기 <ArrowRight size={14} />
-            </button>
-            <button
-              type="button"
-              onClick={() => navigateTo('gallery')}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs md:text-sm font-semibold text-white transition-colors hover:border-[#85C441] hover:text-[#85C441]"
-            >
-              갤러리 바로가기 <ArrowRight size={14} />
-            </button>
-          </div>
-        </div>
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between gap-6 md:gap-8 text-xs md:text-sm font-light text-center md:text-left">
           <div className="space-y-1.5 md:space-y-2 leading-relaxed opacity-80 break-keep">
-            <p>상호: (주)지앤비플래닝 <span className="mx-2 opacity-50">|</span> 대표: 김지윤</p>
+            <p>상호: (주)지앤비플래닝 <span className="mx-2 opacity-50">|</span> 대표: 김지영</p>
             <p>주소: 서울 강남구 도산대로6길 31, 3층</p>
             <p>Tel: 02-458-3248 <span className="mx-2 opacity-50">|</span> Fax: 02-499-3248</p>
           </div>
